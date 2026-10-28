@@ -1,16 +1,44 @@
-# React + Vite
+# Tip Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![CI](https://github.com/SIRUP1999/tip-calculator/actions/workflows/ci.yaml/badge.svg)](https://github.com/SIRUP1999/tip-calculator/actions/workflows/ci.yaml)
 
-Currently, two official plugins are available:
+A tip calculator that splits a bill, plus tip, between any number of people.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live demo:** [https://tip-calculator-ochre-three.vercel.app/](https://tip-calculator-ochre-three.vercel.app/)
 
-## React Compiler
+![Tip Calculator screenshot](./docs/screenshot2.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Enter a bill amount and pick a tip of 10%, 15%, 20% or 25%
+- Split the total between any number of people
+- See the tip, the total and the amount per person update instantly
+- Results stay hidden until a bill is entered
+- Invalid input can't break it: negative bills count as 0, and the number of people is always a whole number of at least 1
+- One-click reset
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech used
+
+- React
+- Vite
+- CSS
+- GitHub Actions (CI) and Vercel (deployment)
+
+## What I practiced
+
+- Controlled inputs, where React state is the single source of truth
+- Derived values: the tip, total and per-person amounts are calculated on every render, never stored in state
+- Rendering lists with `.map()` and stable `key` props
+- Conditional rendering and conditional class names
+- Defensive calculations that stay correct however a user types
+
+## Run it locally
+
+```bash
+git clone https://github.com/SIRUP1999/tip-calculator.git
+cd tip-calculator
+npm install
+npm run dev
+```
+
+Then open the local link that Vite prints, usually `http://localhost:5173`.
